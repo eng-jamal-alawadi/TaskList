@@ -2,9 +2,10 @@
 
 <?php
 
-use GuzzleHttp\Psr7\Request;
-use Illuminate\Support\Facades\Route;
 
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
@@ -18,6 +19,6 @@ Route::get('about', function () {
 
 
 Route::post('send', function(Request $request){
-    $name = $request->myname;
+    $name = $request ->myname;
     return view('about', compact('name'));
 });
