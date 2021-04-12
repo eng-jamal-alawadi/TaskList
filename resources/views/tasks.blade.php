@@ -7,17 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello!! my name is {{$name}}</h1>
+    <ul>
+        <?php foreach ($tasks as $key => $task): ?>
+        <li><a href="{{'show/' . $key}}"><?php echo $task ?></a></li>
+        <?php endforeach ; ?>
 
-
-<form action="store" method="post">
-    @csrf
-
-    <input type="text" name="myname" id="myname">
-    <input type="submit" value="send">
-
-</form>
-
+    </ul>
 
 </body>
 </html>
