@@ -39,3 +39,18 @@ Route::get('tasks/show/{id}' , function($id){
     return view('show',compact('task'));
 
 });
+
+
+Route::get('app', function () {
+    $tasks =DB::table('tasks')->get();
+    $tasks= DB::table('tasks')-> orderBy('title', 'asc')-> get();
+    return view('todo', compact('tasks'));
+});
+
+
+Route::post('store',function(Request $request){
+    DB::table('tasks')->insert([
+        'title'=> $request-> title
+    ]);
+    return redirect()-> back();
+});
